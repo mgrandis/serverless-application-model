@@ -36,44 +36,19 @@
                 "$ref": "#definitions/AWS::Serverless::Api.Auth"
               },
               "BinaryMediaTypes": {
-                "items": {
-                  "type": [
-                    "string",
-                    "intrinsic"
-                  ]
-                },
-                "type": [
-                  "array",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.BinaryMediaTypes"
               },
               "CacheClusterEnabled": {
-                "type": [
-                  "boolean",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.CacheClusterEnabled"
               },
               "CacheClusterSize": {
-                "type": [
-                  "string",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.CacheClusterSize"
               },
               "CanarySetting": {
                 "$ref": "file:cfn.json#definitions/AWS::ApiGateway::Stage.CanarySetting"
               },
               "Cors": {
-                "if": {
-                  "type": "object"
-                },
-                "then": {
-                  "$ref": "#definitions/AWS::Serverless::Api.CorsConfiguration"
-                },
-                "type": [
-                  "string",
-                  "object",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.Cors"
               },
               "DefinitionBody": {
                 "type": [
@@ -83,11 +58,7 @@
                 ]
               },
               "DefinitionUri": {
-                "type": [
-                  "string",
-                  "object"
-                ],
-                "$ref": "#definitions/AWS::Serverless::Api.S3Location"
+                "$ref": "#definitions/AWS::Serverless::Api.DefinitionUri"
               },
               "Description": {
                 "type": [
@@ -108,27 +79,10 @@
                 ]
               },
               "MethodSettings": {
-                "if": {
-                  "type": "array"
-                },
-                "then": {
-                  "items": {
-                    "$ref": "file:cfn.json#definitions/AWS::ApiGateway::Stage.MethodSetting"
-                  }
-                },
-                "type": [
-                  "array",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.MethodSettings"
               },
               "MinimumCompressionSize": {
-                "type": [
-                  "integer",
-                  "intrinsic",
-                  "null"
-                ],
-                "maximum": 10485760,
-                "minimum": 0
+                "$ref": "#definitions/AWS::Serverless::Api.MinimumCompressionSize"
               },
               "Models": {
                 "additionalProperties": {
@@ -137,15 +91,10 @@
                 "type": "object"
               },
               "Name": {
-                "type": [
-                  "string",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.Name"
               },
               "OpenApiVersion": {
-                "type": "string",
-                "pattern": "^[2-3](\\.\\d)(\\.\\d)?$",
-                "patternError": "must match 2.x or 3.x.x"
+                "$ref": "#definitions/AWS::Serverless::Api.OpenApiVersion"
               },
               "StageName": {
                 "type": [
@@ -157,26 +106,10 @@
                 "$ref": "file:common.json#definitions/TagsMap"
               },
               "TracingEnabled": {
-                "type": [
-                  "boolean",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.TracingEnabled"
               },
               "Variables": {
-                "additionalProperties": false,
-                "patternProperties": {
-                  "^[a-zA-Z0-9]+$": {
-                    "pattern": "[A-Za-z0-9._~:/?#&=,-]+",
-                    "type": [
-                      "string",
-                      "intrinsic"
-                    ]
-                  }
-                },
-                "type": [
-                  "object",
-                  "intrinsic"
-                ]
+                "$ref": "#definitions/AWS::Serverless::Api.Variables"
               }
             },
             "required": [
@@ -305,6 +238,30 @@
         "intrinsic"
       ]
     },
+    "AWS::Serverless::Api.BinaryMediaTypes": {
+      "items": {
+        "type": [
+          "string",
+          "intrinsic"
+        ]
+      },
+      "type": [
+        "array",
+        "intrinsic"
+      ]
+    },
+    "AWS::Serverless::Api.CacheClusterEnabled": {
+      "type": [
+        "boolean",
+        "intrinsic"
+      ]
+    },
+    "AWS::Serverless::Api.CacheClusterSize": {
+      "type": [
+        "string",
+        "intrinsic"
+      ]
+    },
     "AWS::Serverless::Api.CognitoAuthorizer": {
       "if": {
         "required": [
@@ -353,6 +310,19 @@
       },
       "type": "object"
     },
+    "AWS::Serverless::Api.Cors": {
+      "if": {
+        "type": "object"
+      },
+      "then": {
+        "$ref": "#definitions/AWS::Serverless::Api.CorsConfiguration"
+      },
+      "type": [
+        "string",
+        "object",
+        "intrinsic"
+      ]
+    },
     "AWS::Serverless::Api.CorsConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -391,6 +361,13 @@
         "AllowOrigin"
       ],
       "type": "object"
+    },
+    "AWS::Serverless::Api.DefinitionUri": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "$ref": "#definitions/AWS::Serverless::Api.S3Location"
     },
     "AWS::Serverless::Api.DomainConfiguration": {
       "additionalProperties": false,
@@ -613,6 +590,40 @@
       },
       "type": "object"
     },
+    "AWS::Serverless::Api.MethodSettings": {
+      "if": {
+        "type": "array"
+      },
+      "then": {
+        "items": {
+          "$ref": "file:cfn.json#definitions/AWS::ApiGateway::Stage.MethodSetting"
+        }
+      },
+      "type": [
+        "array",
+        "intrinsic"
+      ]
+    },
+    "AWS::Serverless::Api.MinimumCompressionSize": {
+      "type": [
+        "integer",
+        "intrinsic",
+        "null"
+      ],
+      "maximum": 10485760,
+      "minimum": 0
+    },
+    "AWS::Serverless::Api.Name": {
+      "type": [
+        "string",
+        "intrinsic"
+      ]
+    },
+    "AWS::Serverless::Api.OpenApiVersion": {
+      "type": "string",
+      "pattern": "^[2-3](\\.\\d)(\\.\\d)?$",
+      "patternError": "must match 2.x or 3.x.x"
+    },
     "AWS::Serverless::Api.ResourcePolicyStatement": {
       "additionalProperties": false,
       "properties": {
@@ -784,6 +795,28 @@
         ],
         "type": "object"
       }
+    },
+    "AWS::Serverless::Api.TracingEnabled": {
+      "type": [
+        "boolean",
+        "intrinsic"
+      ]
+    },
+    "AWS::Serverless::Api.Variables": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z0-9]+$": {
+          "pattern": "[A-Za-z0-9._~:/?#&=,-]+",
+          "type": [
+            "string",
+            "intrinsic"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "intrinsic"
+      ]
     }
   }
 }

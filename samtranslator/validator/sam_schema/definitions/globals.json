@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "Api": {
+      "additionalProperties": false,
+      "properties": {
+        "AccessLogSetting": {
+          "$ref": "file:cfn.json#definitions/AWS::ApiGateway::Stage.AccessLogSetting"
+        },
+        "Auth": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.Auth"
+        },
+        "BinaryMediaTypes": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.BinaryMediaTypes"
+        },
+        "CacheClusterEnabled": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.CacheClusterEnabled"
+        },
+        "CacheClusterSize": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.CacheClusterSize"
+        },
+        "CanarySetting": {
+          "$ref": "file:cfn.json#definitions/AWS::ApiGateway::Stage.CanarySetting"
+        },
+        "Cors": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.Cors"
+        },
+        "DefinitionUri": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.DefinitionUri"
+        },
+        "Domain": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.DomainConfiguration"
+        },
+        "EndpointConfiguration": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.EndpointConfiguration"
+        },
+        "GatewayResponses": {
+          "$ref": "file:common.json#definitions/GatewayResponses"
+        },
+        "MethodSettings": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.MethodSettings"
+        },
+        "MinimumCompressionSize": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.MinimumCompressionSize"
+        },
+        "Name": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.Name"
+        },
+        "OpenApiVersion": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.OpenApiVersion"
+        },
+        "TracingEnabled": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.TracingEnabled"
+        },
+        "Variables": {
+          "$ref": "file:api.json#definitions/AWS::Serverless::Api.Variables"
+        }
+      }
+    }
+  },
+  "type": "object"
+}

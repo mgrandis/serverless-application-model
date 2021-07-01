@@ -1,0 +1,9 @@
+Transform: AWS::Serverless-2016-10-31
+Globals:
+  Api:
+
+Resources:
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Stage name
